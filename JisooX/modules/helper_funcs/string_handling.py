@@ -52,15 +52,15 @@ def _calc_emoji_offset(to_calc) -> int:
 
 def markdown_parser(txt: str, entities: Dict[MessageEntity, str] = None, offset: int = 0) -> str:
     """
-    Parse a string, escaping all invalid markdown entities.
+    Parsing string, melarikan diri dari semua entitas penurunan nilai yang tidak valid.
 
-    Escapes URL's so as to avoid URL mangling.
-    Re-adds any telegram code entities obtained from the entities object.
+    Melarikan diri dari URL untuk menghindari URL Mangling.
+    Menambahkan kembali entitas kode telegram yang diperoleh dari objek entitas.
 
-    :param txt: text to parse
-    :param entities: dict of message entities in text
-    :param offset: message offset - command and notename length
-    :return: valid markdown string
+    :param txt: teks untuk parse
+    :Param entities: Ditte entitas pesan dalam teks
+    :param offset: Pesan offset - panjang perintah dan notename
+    :return: String Markdown yang valid
     """
     if not entities:
         entities = {}
@@ -240,7 +240,7 @@ def extract_time(message, time_val):
         unit = time_val[-1]
         time_num = time_val[:-1]  # type: str
         if not time_num.isdigit():
-            message.reply_text("Invalid time amount specified.")
+            message.reply_text("Jumlah waktu yang ditentukan tidak valid.")
             return ""
 
         if unit == 'm':
@@ -254,5 +254,5 @@ def extract_time(message, time_val):
             return ""
         return bantime
     else:
-        message.reply_text("Invalid time type specified. Expected m,h, or d, got: {}".format(time_val[-1]))
+        message.reply_text("Jenis waktu yang ditentukan tidak valid . harap gunakan m,h, atau d, got: {}".format(time_val[-1]))
         return ""
