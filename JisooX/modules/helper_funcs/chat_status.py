@@ -77,7 +77,7 @@ def dev_plus(func):
         elif DEL_CMDS and " " not in update.effective_message.text:
             update.effective_message.delete()
         else:
-            update.effective_message.reply_text("This is a developer restricted command. You do not have permissions to run this.")
+            update.effective_message.reply_text("Ini adalah perintah pembatas pengembang.Anda tidak memiliki izin untuk menjalankan ini.")
 
     return is_dev_plus_func
     
@@ -96,7 +96,7 @@ def sudo_plus(func):
         elif DEL_CMDS and " " not in update.effective_message.text:
             update.effective_message.delete()
         else:
-            update.effective_message.reply_text("Who dis non-admin telling me what to do?")
+            update.effective_message.reply_text("Siapa yang non-admin memberitahu saya apa yang harus dilakukan?")
 
     return is_sudo_plus_func
 
@@ -126,7 +126,7 @@ def whitelist_plus(func):
         if user and is_whitelist_plus(chat, user.id):
             return func(bot, update, *args, **kwargs)
         else:
-            update.effective_message.reply_text("You don't have access to use this.")
+            update.effective_message.reply_text("anda tidak memiliki akses untuk menggunakan ini.")
 
     return is_whitelist_plus_func
 
@@ -145,7 +145,7 @@ def user_admin(func):
         elif DEL_CMDS and " " not in update.effective_message.text:
             update.effective_message.delete()
         else:
-            update.effective_message.reply_text("You don't have access to use this.")
+            update.effective_message.reply_text("anda tidak memiliki akses untuk menggunakan ini.")
 
     return is_admin
 
@@ -212,9 +212,9 @@ def bot_can_delete(func):
         message_chat_title = update.effective_message.chat.title
 
         if update_chat_title == message_chat_title:
-            cant_delete = f"I can't delete messages here!\nMake sure I'm admin and can delete other user's messages."
+            cant_delete = f"saya tidak dapat menghapus pesan disini!\npastikan saya menjadi admin dan dapat menghapus pesan pengguna."
         else:
-            cant_delete = f"I can't delete messages in <b>{update_chat_title}</b>!\nMake sure I'm admin and can delete other user's messages there."
+            cant_delete = f"saya tidak dapat menghapus pesan di <b>{update_chat_title}</b>!\npastikan saya menjadi admin dan dapat menghapus pesan pengguna disini."
 
         if can_delete(chat, bot.id):
             return func(bot, update, *args, **kwargs)
@@ -233,9 +233,9 @@ def can_pin(func):
         message_chat_title = update.effective_message.chat.title
 
         if update_chat_title == message_chat_title:
-            cant_pin = f"I can't pin messages here!\nMake sure I'm admin and can pin messages."
+            cant_pin = f"saya tidak bisa menyematkan pesan disini!\npastikan saya menjadi admin dan dapat sematkan pesan pengguna."
         else:
-            cant_pin = f"I can't pin messages in <b>{update_chat_title}</b>!\nMake sure I'm admin and can pin messages there."
+            cant_pin = f"saya tidak bisa menyematkan pesan di <b>{update_chat_title}</b>!\npastikan saya menjadi admin dan dapat sematkan pesan pengguna disini."
 
         if chat.get_member(bot.id).can_pin_messages:
             return func(bot, update, *args, **kwargs)
@@ -254,9 +254,9 @@ def can_promote(func):
         message_chat_title = update.effective_message.chat.title
 
         if update_chat_title == message_chat_title:
-            cant_promote = f"I can't promote/demote people here!\nMake sure I'm admin and can appoint new admins."
+            cant_promote = f"saya tidak bisa promote/demote pengguna disini!\npastikan saya menjadi admin dan dapat menambahkan admin baru."
         else:
-            cant_promote = f"I can't promote/demote people in <b>{update_chat_title}</b>!\nMake sure I'm admin there and can appoint new admins."
+            cant_promote = f"saya tidak bisa promote/demote pengguna di <b>{update_chat_title}</b>!\npastikan saya menjadi admin dan dapat menambahkan admin baru disini."
         
         if chat.get_member(bot.id).can_promote_members:
             return func(bot, update, *args, **kwargs)
@@ -275,9 +275,9 @@ def can_restrict(func):
         message_chat_title = update.effective_message.chat.title
 
         if update_chat_title == message_chat_title:
-            cant_restrict = f"I can't restrict people here!\nMake sure I'm admin and can restrict users."
+            cant_restrict = f"saya tidak bisa membatasi pengguna di sini!\npastikan saya menjadi admin dan dapat membatasi pengguna."
         else:
-            cant_restrict = f"I can't restrict people in <b>{update_chat_title}</b>!\nMake sure I'm admin there and can restrict users."
+            cant_restrict = f"saya tidak bisa mebatasi pengguna di <b>{update_chat_title}</b>!\npastikan saya menjadi admin dan dapat membatasi pengguna disini."
 
         if chat.get_member(bot.id).can_restrict_members:
             return func(bot, update, *args, **kwargs)
@@ -299,7 +299,7 @@ def connection_status(func):
             return func(bot, update, *args, **kwargs)
         else:
             if update.effective_message.chat.type == "private":
-                update.effective_message.reply_text("Send /connect in a group that you and I have in common first.")
+                update.effective_message.reply_text("Kirim /connect di Dalam Group bahwa Anda dan saya memiliki kesamaan pertama.")
                 return connected_status
 
             return func(bot, update, *args, **kwargs)
