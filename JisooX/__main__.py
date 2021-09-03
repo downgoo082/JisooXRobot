@@ -27,9 +27,9 @@ from JisooX.modules.connection import connect_button
 
 
 PM_START_TEXT = """
-_Hello_ *{}*
-_My name is_ *{}*\n_A Powerful Telegram ProBot to Manage Your Groups,feel free to add to your groups!!_
-_Maintained by_ [{}](tg://user?id={})
+_Halo_ *{}*
+_nama saya adalah_ *{}*\n_A probot telegram yang kuat untuk mengelola grup Anda, jangan ragu untuk menambah saya ke grup Anda!!_
+_dikelola oleh_ [{}](tg://user?id={})
 """
 
 
